@@ -7,18 +7,11 @@ import { compilePage, genScriptTags } from "../../utilities";
 const app = express.Router();
 
 app.get("/", async (__req, res) => {
-  const react = renderToString(<App />);
-
+  const app = renderToString(<App />);
   const tags = genScriptTags([{ name: "script.js", version: 1 }]);
-
-  const context = [{ details: react, ip: "{{react}}" }];
-
-  const compiledHTML = compilePage("../../pages/index.html", context, {
-    tags,
-    insertionPoint: "{{scripts}}"
-  });
-
-  return res.send(compiledHTML);
+  const context = { react: app, script: tags };
+  const html = compilePage("../../pages/index.html", context);
+  return res.send(html);
 });
 
 export default app;
