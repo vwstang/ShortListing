@@ -3,7 +3,9 @@ import { insListing } from "../../../controllers/services/listings";
 
 const listings = express.Router();
 
-listings.get("/", async (req, res) => {});
+listings.get("/", async (req, res) => {
+  return res.send("GET Listings");
+});
 
 listings.post("/", async (req, res) => {
   insListing(req.body);

@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "",
+  entry: path.resolve(__dirname, "./src/client/hydrate.js"),
   output: {
     path: path.resolve(__dirname, "public"),
     publicPath: "/",
@@ -15,9 +15,9 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"]
-          },
-          exclude: /node_modules/
-        }
+          }
+        },
+        exclude: /node_modules/
       }
     ]
   },
