@@ -8,7 +8,7 @@ const app = express.Router();
 
 app.get("/", async (__req, res) => {
   const app = renderToString(<App />);
-  const tags = genScriptTags([{ name: "script.js", version: 1 }]);
+  const tags = genScriptTags([{ name: "scripts.js", version: 1 }]);
   const context = { react: app, script: tags };
   const html = compilePage("../../pages/index.html", context);
   return res.send(html);
