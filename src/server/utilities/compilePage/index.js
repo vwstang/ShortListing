@@ -11,7 +11,7 @@ export const genScriptTags = (files) => {
   return scripts;
 };
 
-export default (filePath, contexts, script) => {
+export default (filePath, context) => {
   const htmlFile = fs.readFileSync(path.resolve(__dirname, filePath), "utf-8");
-  return handlebars.compile(htmlFile)({ ...contexts });
+  return handlebars.compile(htmlFile)({ ...context });
 };
