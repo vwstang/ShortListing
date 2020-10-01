@@ -1,15 +1,24 @@
 import express from "express";
-// import React from "react";
+import React from "react";
 import { renderToString } from "react-dom/server";
-import App from "../../../client/hydrate";
+import App from "../../../client";
+import { compilePage, genScriptTags } from "../../utilities";
 
 const app = express.Router();
 
-app.get("/", async (req, res) => {
-  const app = renderToString(<App />);
-  const html = `<html><body><div id="approot">${app}</div><script src="script.js"></script></body></html>`;
+app.get("/", async (__req, res) => {
+  const react = renderToString(<App />);
 
-  return res.send(html);
+  const tags = genScriptTags([{ name: "script.js", version: 1 }]);
+
+  const context = [{ details: react, ip: "{{react}}" }];
+
+  const compiledHTML = compilePage("../../pages/index.html", context, {
+    tags,
+    insertionPoint: "{{scripts}}"
+  });
+
+  return res.send(compiledHTML);
 });
 
 export default app;
