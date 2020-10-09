@@ -14,7 +14,7 @@ if (global.window) {
 }
 
 const ShortlistMap = (props) => {
-  const position = [51.505, -0.09];
+  const position = [43.653225, -79.383186];
   return (
     <>
       {global.window && (
