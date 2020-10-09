@@ -1,7 +1,24 @@
 {
   "listings": [
     {
-      "url": "hello"
+      "address": "178 Westway Crescent",
+      "city": "Vaughan",
+      "district": "Patterson",
+      "ewmajor": "Rutherford Road",
+      "nsmajor": "Dufferin Street",
+      "virtualtour": "https://www.slideshowcloud.com/178westwaycrescent",
+      "sqftrange": "1500-2000",
+      "frontage": "23.97",
+      "lotdepth": "85.30",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "basement": "Unfinished",
+      "parking": 1,
+      "exposure": "E",
+      "listprice": 799900,
+      "comparable": 855893,
+      "proptax": 3586,
+      "url": "https://www.zolo.ca/vaughan-real-estate/178-westway-crescent"
     }
   ]
 }

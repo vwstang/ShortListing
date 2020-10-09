@@ -1,10 +1,11 @@
 import express from "express";
-import { insListing } from "../../../controllers/services/listings";
+import { selListing, insListing } from "../../../controllers/services/listings";
 
 const listings = express.Router();
 
-listings.get("/", async (req, res) => {
-  return res.send("GET Listings");
+listings.get("/all", async (req, res) => {
+  const allListings = selListing();
+  return res.json(allListings);
 });
 
 listings.post("/", async (req, res) => {

@@ -1,0 +1,3 @@
+{
+  "ignore": [".prettierc", ".gitignore", "src/server/db/*"]
+}
