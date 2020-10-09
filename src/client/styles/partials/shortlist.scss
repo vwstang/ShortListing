@@ -1,4 +1,5 @@
 .shortlist-container {
+  position: relative;
   width: 50%;
   padding: 24px;
 }
@@ -8,6 +9,6 @@
 }
 
 .showHideShortlist {
-  position: relative;
-  z-index: 1000;
+  position: absolute;
+  z-index: 2;
 }
