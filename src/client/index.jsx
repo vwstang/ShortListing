@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import ShortlistMap from "./components/ShortlistMap";
+import Shortlist from "./components/Shortlist";
+import ListingsMap from "./components/ListingsMap";
 
-const App = (props) => {
+const App = () => {
   const [shortlist, setShortlist] = useState(null);
+  const [hideList, setHideList] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -20,14 +22,14 @@ const App = (props) => {
     return <p>Loading...</p>;
   } else {
     return (
-      <>
-        <ShortlistMap />
-        {shortlist.length > 0 ? (
-          shortlist.map((listing) => <p>{listing.address}</p>)
-        ) : (
-          <p>No listings shortlisted</p>
-        )}
-      </>
+      <div className="page-container">
+        <Shortlist
+          shortlist={shortlist}
+          hideList={hideList}
+          setHideList={setHideList}
+        />
+        <ListingsMap hideList={hideList} />
+      </div>
     );
   }
 };
