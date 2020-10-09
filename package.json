@@ -19,6 +19,7 @@
   "homepage": "https://gitlab.com/vwstang/real-estate-shortlist#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-validator": "^6.6.1",
     "handlebars": "^4.7.6",
     "lowdb": "^1.0.0",
     "react": "^16.13.1",
