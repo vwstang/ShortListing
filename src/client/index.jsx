@@ -2,8 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Shortlist from "./components/Shortlist";
 import ListingsMap from "./components/ListingsMap";
+import Loading from "./components/Loading";
 
 const App = () => {
+  const [isReady, setIsReady] = useState(false);
+  const [mapload, setMapload] = useState(true);
   const [shortlist, setShortlist] = useState(null);
   const [hideList, setHideList] = useState(false);
 
@@ -18,8 +21,14 @@ const App = () => {
     })();
   }, []);
 
-  if (!shortlist) {
-    return <p>Loading...</p>;
+  useEffect(() => {
+    if (!shortlist && !mapload) {
+      setIsReady(true);
+    }
+  }, [shortlist, mapload]);
+
+  if (!isReady) {
+    return <Loading />;
   } else {
     return (
       <div className="page-container">
@@ -28,7 +37,7 @@ const App = () => {
           hideList={hideList}
           setHideList={setHideList}
         />
-        <ListingsMap hideList={hideList} />
+        <ListingsMap hideList={hideList} setMapload={setMapload} />
       </div>
     );
   }

@@ -32,7 +32,7 @@ const ShortlistMap = (props) => {
           <Map
             bounds={[posWestway, posBarli, pos59Sedgeway, pos53Sedgeway]}
             zoom={15}
-            whenReady={() => console.log("MAP FINISHED LOADING")}
+            whenReady={() => props.setMapload(true)}
             ref={mapRef}
           >
             <TileLayer
