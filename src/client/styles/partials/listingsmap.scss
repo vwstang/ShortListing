@@ -13,3 +13,7 @@
   width: 100%;
   height: 100vh;
 }
+
+.leaflet-touch .leaflet-bar {
+  border: 1px solid $color--borders;
+}

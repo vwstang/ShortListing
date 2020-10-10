@@ -2,8 +2,8 @@
   "listings": [
     {
       "address": "178 Westway Crescent",
-      "latitude": 43.834600,
-      "longitude": -79.497070,
+      "latitude": 43.8346,
+      "longitude": -79.49707,
       "city": "Vaughan",
       "district": "Patterson",
       "ewmajor": "Rutherford Road",
@@ -21,6 +21,14 @@
       "comparable": 855893,
       "proptax": 3586,
       "url": "https://www.zolo.ca/vaughan-real-estate/178-westway-crescent"
+    },
+    {
+      "address": "53 Sedgeway Heights",
+      "latitude": 43.84389694,
+      "longitude": -79.55447781,
+      "city": "Vaughan",
+      "district": "Vellore Village",
+      "url": "https://www.zolo.ca/vaughan-real-estate/53-sedgeway-heights"
     }
   ]
 }

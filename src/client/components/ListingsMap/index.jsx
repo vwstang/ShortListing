@@ -13,11 +13,11 @@ if (global.window) {
   Popup = RL.Popup;
 }
 
-const ShortlistMap = (props) => {
-  const posWestway = [43.8346, -79.49707]; // Westway
-  const posBarli = [43.85702, -79.50328]; // Barli
-  const pos59Sedgeway = [43.84396, -79.55456]; // 59 Sedgeway
-  const pos53Sedgeway = [43.84391, -79.55473]; // 53 Sedgeway
+const ListingsMap = (props) => {
+  // const posWestway = [43.8346, -79.49707]; // Westway
+  // const posBarli = [43.85702, -79.50328]; // Barli
+  // const pos59Sedgeway = [43.84396, -79.55456]; // 59 Sedgeway
+  // const pos53Sedgeway = [43.84391, -79.55473]; // 53 Sedgeway
   const mapRef = useRef(null);
 
   return (
@@ -30,7 +30,10 @@ const ShortlistMap = (props) => {
           }}
         >
           <Map
-            bounds={[posWestway, posBarli, pos59Sedgeway, pos53Sedgeway]}
+            bounds={props.shortlist.map((listing) => [
+              listing.latitude,
+              listing.longitude
+            ])}
             zoom={15}
             whenReady={() => props.setMapload(true)}
             ref={mapRef}
@@ -39,10 +42,56 @@ const ShortlistMap = (props) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={posWestway}></Marker>
-            <Marker position={posBarli}></Marker>
-            <Marker position={pos59Sedgeway}></Marker>
-            <Marker position={pos53Sedgeway}></Marker>
+            {props.shortlist.map((listing) => (
+              <Marker
+                key={listing.address}
+                position={[listing.latitude, listing.longitude]}
+              >
+                <Popup
+                  onOpen={() => props.setActiveListing(listing.address)}
+                  onClose={() => props.setActiveListing(null)}
+                  closeButton={false}
+                >
+                  {listing.address}
+                </Popup>
+              </Marker>
+            ))}
+            {/* <Marker position={posWestway}>
+              <Popup
+                onOpen={() => props.setActiveListing("178 Westway Crescent")}
+                onClose={() => props.setActiveListing(null)}
+                closeButton={false}
+              >
+                Hello
+              </Popup>
+            </Marker>
+            <Marker position={posBarli}>
+              <Popup
+                onOpen={() => props.setActiveListing("68 Barli Crescent")}
+                onClose={() => props.setActiveListing(null)}
+                closeButton={false}
+              >
+                Hello
+              </Popup>
+            </Marker>
+            <Marker position={pos59Sedgeway}>
+              <Popup
+                onOpen={() => props.setActiveListing("59 Sedgeway Heights")}
+                onClose={() => props.setActiveListing(null)}
+                closeButton={false}
+              >
+                Hello
+              </Popup>
+            </Marker>
+            <Marker position={pos53Sedgeway}>
+              <Popup
+                onOpen={() => props.setActiveListing("53 Sedgeway Heights")}
+                onClose={() => props.setActiveListing(null)}
+                closeButton={false}
+              >
+                Hello
+              </Popup>
+            </Marker> */}
           </Map>
         </div>
       )}
@@ -50,4 +99,4 @@ const ShortlistMap = (props) => {
   );
 };
 
-export default ShortlistMap;
+export default ListingsMap;

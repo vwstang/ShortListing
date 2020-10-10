@@ -9,6 +9,7 @@ const App = () => {
   const [mapload, setMapload] = useState(true);
   const [shortlist, setShortlist] = useState(null);
   const [hideList, setHideList] = useState(false);
+  const [activeListing, setActiveListing] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -22,9 +23,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (!shortlist && !mapload) {
-      setIsReady(true);
-    }
+    if (shortlist && mapload) setIsReady(true);
   }, [shortlist, mapload]);
 
   if (!isReady) {
@@ -36,8 +35,16 @@ const App = () => {
           shortlist={shortlist}
           hideList={hideList}
           setHideList={setHideList}
+          activeListing={activeListing}
+          setActiveListing={setActiveListing}
         />
-        <ListingsMap hideList={hideList} setMapload={setMapload} />
+        <ListingsMap
+          shortlist={shortlist}
+          hideList={hideList}
+          setMapload={setMapload}
+          activeListing={activeListing}
+          setActiveListing={setActiveListing}
+        />
       </div>
     );
   }
