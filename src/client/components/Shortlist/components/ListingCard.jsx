@@ -1,5 +1,10 @@
 import React from "react";
 
+let RL = false;
+if (global.window) {
+  RL = require("react-leaflet");
+}
+
 const ListingCard = ({ listing, activeListing, setActiveListing }) => {
   console.log(listing);
   return (
@@ -7,7 +12,9 @@ const ListingCard = ({ listing, activeListing, setActiveListing }) => {
       className={`listing-card${
         activeListing === listing.address ? " active" : ""
       }`}
-      onClick={() => setActiveListing(listing.address)}
+      onClick={() => {
+        setActiveListing(listing.address);
+      }}
     >
       {listing.address}
     </div>

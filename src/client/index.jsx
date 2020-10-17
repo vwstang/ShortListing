@@ -10,6 +10,7 @@ const App = () => {
   const [shortlist, setShortlist] = useState(null);
   const [hideList, setHideList] = useState(false);
   const [activeListing, setActiveListing] = useState(null);
+  const mapRef = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -37,6 +38,7 @@ const App = () => {
           setActiveListing={setActiveListing}
         />
         <ListingsMap
+          mapRef={mapRef}
           shortlist={shortlist}
           hideList={hideList}
           setHideList={setHideList}

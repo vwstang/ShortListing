@@ -9,12 +9,12 @@
     margin-bottom: 0;
   }
 
-  &.active {
-    background-color: $color--hover;
-  }
-
   &:hover {
     cursor: pointer;
     background-color: $color--hover;
+  }
+
+  &.active {
+    background-color: $color--active;
   }
 }

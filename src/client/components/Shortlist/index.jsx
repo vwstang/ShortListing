@@ -1,11 +1,7 @@
 import React from "react";
 import ListingCard from "./components/ListingCard";
 
-const Shortlist = ({
-  shortlist,
-  activeListing,
-  setActiveListing
-}) => {
+const Shortlist = ({ shortlist, activeListing, setActiveListing }) => {
   return (
     <aside className="shortlist-container">
       <h1 className="shortlist-title">ShortListing</h1>

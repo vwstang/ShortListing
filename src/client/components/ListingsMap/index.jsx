@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 let RL = false;
 let Map = false;
@@ -18,7 +18,16 @@ const ListingsMap = (props) => {
   // const posBarli = [43.85702, -79.50328]; // Barli
   // const pos59Sedgeway = [43.84396, -79.55456]; // 59 Sedgeway
   // const pos53Sedgeway = [43.84391, -79.55473]; // 53 Sedgeway
-  const mapRef = useRef(null);
+  const listRefs = props.shortlist.reduce((refObj, listing) => {
+    refObj[listing.address] = useRef(null);
+    return refObj;
+  }, {});
+
+  useEffect(() => {
+    listRefs &&
+      props.activeListing &&
+      listRefs[props.activeListing].current.leafletElement.openPopup();
+  }, [props.activeListing]);
 
   return (
     <>
@@ -26,8 +35,8 @@ const ListingsMap = (props) => {
         <div
           className={`map-container${props.hideList ? " full" : ""}`}
           onTransitionEnd={(e) => {
-            if (mapRef && e.propertyName === "margin-left") {
-              mapRef.current.leafletElement.invalidateSize(true);
+            if (props.mapRef && e.propertyName === "margin-left") {
+              props.mapRef.current.leafletElement.invalidateSize(true);
             }
           }}
         >
@@ -42,7 +51,7 @@ const ListingsMap = (props) => {
             ])}
             zoom={15}
             whenReady={() => props.setMapload(true)}
-            ref={mapRef}
+            ref={props.mapRef}
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -50,6 +59,7 @@ const ListingsMap = (props) => {
             />
             {props.shortlist.map((listing) => (
               <Marker
+                ref={listRefs[listing.address]}
                 key={listing.address}
                 position={[listing.latitude, listing.longitude]}
               >
