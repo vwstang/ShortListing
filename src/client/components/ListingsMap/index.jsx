@@ -24,9 +24,11 @@ const ListingsMap = (props) => {
   }, {});
 
   useEffect(() => {
-    listRefs &&
-      props.activeListing &&
-      listRefs[props.activeListing].current.leafletElement.openPopup();
+    // Only need to check props.activeListing and not whether listRefs or props.mapRef is not
+    // undefined as those will be set by the time activeListing can be anything but null
+    props.activeListing
+      ? listRefs[props.activeListing].current.leafletElement.openPopup()
+      : props.mapRef.current.leafletElement.closePopup();
   }, [props.activeListing]);
 
   return (

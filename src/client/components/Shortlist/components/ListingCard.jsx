@@ -13,7 +13,9 @@ const ListingCard = ({ listing, activeListing, setActiveListing }) => {
         activeListing === listing.address ? " active" : ""
       }`}
       onClick={() => {
-        setActiveListing(listing.address);
+        activeListing === listing.address
+          ? setActiveListing(null)
+          : setActiveListing(listing.address);
       }}
     >
       {listing.address}
