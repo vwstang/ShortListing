@@ -3,17 +3,11 @@ import ListingCard from "./components/ListingCard";
 
 const Shortlist = ({
   shortlist,
-  hideList,
-  setHideList,
   activeListing,
   setActiveListing
 }) => {
   return (
     <aside className="shortlist-container">
-      <button
-        className={`showHideShortlist${hideList ? " collapsed" : ""}`}
-        onClick={() => setHideList(!hideList)}
-      ></button>
       <h1 className="shortlist-title">ShortListing</h1>
       <button
         className="add-new-listing"

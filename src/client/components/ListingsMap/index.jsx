@@ -25,10 +25,16 @@ const ListingsMap = (props) => {
       {global.window && (
         <div
           className={`map-container${props.hideList ? " full" : ""}`}
-          onTransitionEnd={() => {
-            mapRef && mapRef.current.leafletElement.invalidateSize(true);
+          onTransitionEnd={(e) => {
+            if (mapRef && e.propertyName === "margin-left") {
+              mapRef.current.leafletElement.invalidateSize(true);
+            }
           }}
         >
+          <button
+            className={`showHideShortlist${props.hideList ? " collapsed" : ""}`}
+            onClick={() => props.setHideList(!props.hideList)}
+          ></button>
           <Map
             bounds={props.shortlist.map((listing) => [
               listing.latitude,

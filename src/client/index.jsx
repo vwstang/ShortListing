@@ -33,14 +33,13 @@ const App = () => {
       <div className="page-container">
         <Shortlist
           shortlist={shortlist}
-          hideList={hideList}
-          setHideList={setHideList}
           activeListing={activeListing}
           setActiveListing={setActiveListing}
         />
         <ListingsMap
           shortlist={shortlist}
           hideList={hideList}
+          setHideList={setHideList}
           setMapload={setMapload}
           activeListing={activeListing}
           setActiveListing={setActiveListing}
