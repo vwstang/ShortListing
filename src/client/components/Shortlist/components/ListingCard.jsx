@@ -6,7 +6,6 @@ if (global.window) {
 }
 
 const ListingCard = ({ listing, activeListing, setActiveListing }) => {
-  console.log(listing);
   return (
     <div
       className={`listing-card${
