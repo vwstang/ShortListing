@@ -7,11 +7,13 @@ const port = 1726;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static("public"));
 
-// Apply routing
-server.use("/", app);
+// API Routing
 server.use("/api", api);
+
+// App Routing
+server.use(express.static("public"));
+server.use("/", app);
 
 server.listen(port, () => {
   console.info(
