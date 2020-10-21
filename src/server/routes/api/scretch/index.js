@@ -1,6 +1,6 @@
 import express from "express";
 import { header } from "express-validator";
-import { getHtmlFromUrl } from "../../../controllers/services/scretch";
+import Scretch, { getHtmlFromUrl } from "../../../controllers/services/scretch";
 import { validateReq } from "../../../middlewares";
 
 const scretch = express.Router();
@@ -13,10 +13,19 @@ scretch.get(
     try {
       // Retrieve HTML from specified URL
       const { "scretch-url": scretchUrl } = req.headers;
-      const html = await getHtmlFromUrl(scretchUrl);
-      if (html === "NOT_HTML") return res.sendStatus(404);
 
-      // Load to Cheerio
+      const scretch = new Scretch();
+
+      scretch.loadPage(scretchUrl);
+
+      console.log(scretch.framework);
+      console.log(scretch.scrapeFor);
+
+      // const html = await getHtmlFromUrl(scretchUrl);
+      // if (html === "NOT_HTML") return res.sendStatus(404);
+
+      // // Load to Cheerio
+      // console.log(html);
 
       return res.sendStatus(200);
     } catch (err) {

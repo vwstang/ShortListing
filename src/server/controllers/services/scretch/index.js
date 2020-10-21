@@ -1,17 +1,46 @@
-import axios from "axios";
+import { URL } from "url";
 
-/**
- * Retrieve HTML of website at passed URL
- * @property {string} url = URL of website to retrieve
- * @returns {Promise<string>} HTML, or string "NOT_HTML" if URL could not be accessed
- */
-export const getHtmlFromUrl = async (url) => {
-  try {
-    const result = await axios.get(url);
-    console.log(result);
-  } catch (err) {
-    console.error(err.message);
-    console.error("[Occurrence]: controllers.services.scretch.getHtmlFromUrl");
-    return "NOT_HTML";
+class Scretch {
+  constructor() {
+    this.scrapeFor = {
+      address: true,
+      municipality: true,
+      neighbourhood: true,
+      housetype: true,
+      housestyle: true,
+      fronting: true,
+      frontage: true,
+      lotdepth: true,
+      bedrooms: true,
+      bathrooms: true,
+      basement: true,
+      kitchens: true,
+      fireplace: true,
+      centralvac: true,
+      pool: true,
+      garage: true,
+      parking: true,
+      taxes: true,
+      taxyear: true,
+      camfees: true,
+      addlfees: true,
+      virtualtour: true,
+      liststatus: true,
+      listprice: true,
+      approxval: true
+    };
   }
-};
+
+  loadPage(targetUrl) {
+    const hostname = new URL(targetUrl).hostname;
+    if (hostname.includes("housesigma")) {
+      this.framework = require("./framework/housesigma").default;
+    } else if (hostname.includes("zolo")) {
+      throw new Error(`Scraping of zolo.ca is under development.`);
+    } else {
+      throw new Error(`Scraping of ${hostname} is not currently supported.`);
+    }
+  }
+}
+
+export default Scretch;
