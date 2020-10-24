@@ -20,21 +20,22 @@ scretch.get(
       scretch.loadPage(scretchUrl);
 
       const result = await scretch.get({
-        municipality: false,
-        neighbourhood: false,
-        housetype: false,
-        housestyle: false,
-        fronting: false,
+        // address: false,
+        // municipality: false,
+        // neighbourhood: false,
+        // housetype: false,
+        // housestyle: false,
+        // fronting: false,
         frontage: false,
         lotdepth: false,
-        bedrooms: false,
-        bathrooms: false,
-        basement: false,
+        // bedrooms: false,
+        // bathrooms: false,
+        // basement: false,
         kitchens: false,
         fireplace: false,
         centralvac: false,
         pool: false,
-        garage: false,
+        // garage: false,
         parking: false,
         taxes: false,
         taxyear: false,
@@ -42,7 +43,7 @@ scretch.get(
         addlfees: false,
         virtualtour: false,
         liststatus: false,
-        listprice: false,
+        // listprice: false,
         approxval: false
       });
       if (!result) {

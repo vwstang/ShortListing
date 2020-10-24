@@ -1,0 +1,1 @@
+export const SCRETCH_NOT_FOUND = "SCRETCH_NOT_FOUND";
