@@ -7,6 +7,7 @@ import fronting from "./fronting";
 import frontage from "./frontage";
 import lotdepth from "./lotdepth";
 import bedrooms from "./bedrooms";
+import dens from "./dens";
 import bathrooms from "./bathrooms";
 import basement from "./basement";
 import kitchens from "./kitchens";
@@ -34,6 +35,7 @@ export default {
   frontage,
   lotdepth,
   bedrooms,
+  dens,
   bathrooms,
   basement,
   kitchens,

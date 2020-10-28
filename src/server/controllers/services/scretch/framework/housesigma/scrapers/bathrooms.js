@@ -9,7 +9,10 @@ export default async (pptrPage) => {
       if (
         detail.querySelector("span").innerText.toLowerCase().includes("bath")
       ) {
-        return detail.querySelector("span").innerText.split(" ")[0];
+        return parseInt(
+          detail.querySelector("span").innerText.split(" ")[0],
+          10
+        );
       }
     }
   });

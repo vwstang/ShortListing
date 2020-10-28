@@ -6,7 +6,7 @@ export default async (pptrPage) => {
     await pptrPage.waitForSelector(".price_listing");
     const listprice = await pptrPage.$eval(".price_listing", (el) =>
       parseInt(
-        el.querySelector("span").innerHTML.split(" ")[1].replace(",", ""),
+        el.querySelector("span").innerHTML.split(" ")[1].replace(/,/g, ""),
         10
       )
     );

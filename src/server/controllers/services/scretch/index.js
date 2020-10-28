@@ -14,6 +14,7 @@ class Scretch {
       frontage: true,
       lotdepth: true,
       bedrooms: true,
+      dens: true,
       bathrooms: true,
       basement: true,
       kitchens: true,

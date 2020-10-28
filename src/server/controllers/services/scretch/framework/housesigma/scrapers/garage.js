@@ -15,7 +15,10 @@ export default async (pptrPage) => {
             .innerText.toLowerCase()
             .includes("garage")
         ) {
-          return detail.querySelector("span").innerText.split(" ")[0];
+          return parseInt(
+            detail.querySelector("span").innerText.split(" ")[0],
+            10
+          );
         }
       }
     });
