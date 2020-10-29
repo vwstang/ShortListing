@@ -2,9 +2,9 @@ import { SCRETCH_NOT_FOUND } from "../../../constants";
 
 export default async (pptrPage) => {
   try {
-    console.info("Scraping for fireplace");
+    console.info("Scraping for garage style");
     await pptrPage.waitForSelector(".property_details");
-    const fireplace = await pptrPage.evaluate(() => {
+    const garagestyle = await pptrPage.evaluate(() => {
       const propDetails = document
         .querySelector(".property_details")
         .querySelectorAll(".item");
@@ -13,17 +13,17 @@ export default async (pptrPage) => {
           detail
             .querySelector("label")
             .innerText.toLowerCase()
-            .includes("fire place")
+            .includes("garage")
         ) {
-          return detail.querySelector("span").innerText;
+          return detail.querySelector("span").innerText.split(" ")[1];
         }
       }
     });
-    if (fireplace) {
-      console.log(`Found fireplace: ${fireplace}`);
-      return fireplace;
+    if (garagestyle) {
+      console.log(`Found garage style: ${garagestyle}`);
+      return garagestyle;
     } else {
-      console.info("No fireplace found");
+      console.info("No garage found");
       return SCRETCH_NOT_FOUND;
     }
   } catch (err) {

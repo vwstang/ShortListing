@@ -22,6 +22,7 @@ class Scretch {
       centralvac: true,
       pool: true,
       garage: true,
+      garagestyle: true,
       parking: true,
       taxes: true,
       taxyear: true,

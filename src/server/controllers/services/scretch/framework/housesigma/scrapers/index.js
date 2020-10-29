@@ -15,6 +15,7 @@ import fireplace from "./fireplace";
 import centralvac from "./centralvac";
 import pool from "./pool";
 import garage from "./garage";
+import garagestyle from "./garagestyle";
 import parking from "./parking";
 import taxes from "./taxes";
 import taxyear from "./taxyear";
@@ -43,6 +44,7 @@ export default {
   centralvac,
   pool,
   garage,
+  garagestyle,
   parking,
   taxes,
   taxyear,
