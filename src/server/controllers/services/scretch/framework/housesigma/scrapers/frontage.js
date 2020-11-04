@@ -1,4 +1,4 @@
-import { SCRETCH_NOT_FOUND } from "../../../constants";
+import { SCRETCH_NOT_FOUND } from "../../../constants/scretch";
 
 export default async (pptrPage) => {
   try {
