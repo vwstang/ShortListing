@@ -1,7 +1,7 @@
 import React from "react";
 import ListingCard from "./components/ListingCard";
 
-const Shortlist = ({ shortlist, activeListing, setActiveListing }) => {
+const Shortlist = ({ shortlist, activeListing, setActiveListing, mapRef }) => {
   return (
     <aside className="shortlist-container">
       <h1 className="shortlist-title">ShortListing</h1>
@@ -18,6 +18,7 @@ const Shortlist = ({ shortlist, activeListing, setActiveListing }) => {
             listing={listing}
             activeListing={activeListing}
             setActiveListing={setActiveListing}
+            mapRef={mapRef}
           />
         ))
       ) : (

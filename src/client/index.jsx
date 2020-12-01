@@ -19,6 +19,7 @@ const App = () => {
         setShortlist(listings);
       } else {
         console.info("Fetching listings resulted in no results.");
+        setShortlist([]);
       }
     })();
   }, []);
@@ -33,6 +34,7 @@ const App = () => {
     return (
       <div className="page-container">
         <Shortlist
+          mapRef={mapRef}
           shortlist={shortlist}
           activeListing={activeListing}
           setActiveListing={setActiveListing}
