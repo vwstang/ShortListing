@@ -11,6 +11,74 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
+    <style>
+      body {
+        margin: 0;
+      }
+
+      @keyframes rippleAnimation {
+        0% {
+          top: 96px;
+          left: 96px;
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+        100% {
+          top: 18px;
+          left: 18px;
+          width: 156px;
+          height: 156px;
+          opacity: 0;
+        }
+      }
+
+      .loading-container {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loading-ripple {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      .ripple-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0;
+      }
+
+      .ripple-container div {
+        position: absolute;
+        border-width: 4px;
+        border-style: solid;
+        opacity: 1;
+        border-radius: 50%;
+        animation: rippleAnimation 1.25s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+
+      .ripple-container div:nth-child(1) {
+        border-color: #008fd4;
+      }
+
+      .ripple-container div:nth-child(2) {
+        border-color: #001f2d;
+        animation-delay: -0.625s;
+      }
+
+      .ripple-container div {
+        box-sizing: content-box;
+      }
+    </style>
   </head>
   <body>
     <div id="approot">{{{react}}}</div>

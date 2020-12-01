@@ -2,19 +2,13 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100vw",
-        height: "100vh",
-        margin: 0,
-        background: "dodgerblue",
-        color: "white"
-      }}
-    >
-      <h2>LOADING</h2>
+    <div className="loading-container">
+      <div className="loading-ripple">
+        <div className="ripple-container">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 };
