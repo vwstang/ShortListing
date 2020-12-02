@@ -1,6 +1,14 @@
+$unit-base: 4px;
+$unit-gutter: $unit-base * 6;
+
+$size-leftpane: 640px;
+
 $color--borders: #cccccc;
 $color--hover: #f4f4f4;
 $color--active: #a3daff;
+$color--focus: #51afee;
+
+$animation-slide: 0.5s ease;
 
 body {
   font-family: "Karla", sans-serif;

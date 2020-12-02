@@ -1,0 +1,113 @@
+// SECTION: Textbox styles
+.textbox {
+  // BOOKMARK: Container
+  &-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    &.half-width {
+      width: 50%;
+
+      &.left {
+        padding-right: $unit-gutter / 2;
+      }
+
+      &.right {
+        padding-left: $unit-gutter / 2;
+      }
+
+      &.entire-row {
+        padding-right: $unit-gutter / 2;
+        margin-right: 50%;
+      }
+    }
+  }
+
+  // BOOKMARK: Label
+  &-label {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &-text {
+      font-weight: bold;
+    }
+
+    &-error {
+      margin-left: 6px;
+      color: red;
+    }
+  }
+
+  // BOOKMARK: Input
+  &-input {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid $color--borders;
+    border-radius: 4px;
+    padding: 8px;
+    transition: box-shadow 0.2s;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px $color--active;
+    }
+
+    &.errors {
+      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px rgb(255, 150, 150);
+
+      &:focus {
+        box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px red;
+      }
+    }
+  }
+}
+
+// !SECTION
+
+// SECTION: Sweet Alert override styles
+
+.swal-title {
+  font-size: 28px;
+}
+
+.swal-footer {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.swal-button {
+  font-size: 16px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+
+  &--confirm {
+    background: rgb(223, 173, 173);
+
+    &:not([disabled]) {
+      &:hover {
+        background: rgb(236, 160, 160);
+      }
+
+      &:active {
+        background: rgb(236, 160, 160);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px rgb(255, 131, 131);
+    }
+  }
+}
+
+// !SECTION

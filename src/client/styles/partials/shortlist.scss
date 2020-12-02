@@ -3,9 +3,9 @@
   flex-direction: column;
   position: absolute;
   left: 0;
-  width: 600px;
-  height: 100vh;
+  width: $size-leftpane;
   padding: 24px;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -13,8 +13,9 @@
   margin-bottom: 36px;
 }
 
-.add-new-listing {
+.shortlist-addnew-button {
   margin-bottom: 20px;
+  width: 100%;
   padding: 16px;
   border: 1px solid $color--borders;
   border-radius: 4px;
@@ -31,14 +32,14 @@
 .shortlist-subcontainer {
   position: relative;
   width: 100%;
-  background: lightgray;
+  height: 100%;
 }
 
 .shortlist-addnew-wrapper {
   position: absolute;
   width: 100%;
   left: calc(100% + 24px * 2);
-  transition: left 0.2s;
+  transition: left $animation-slide;
 
   &.active {
     left: 0;
@@ -49,9 +50,20 @@
   position: absolute;
   width: 100%;
   right: calc(100% + 24px * 2);
-  transition: right 0.2s;
+  transition: right $animation-slide;
 
   &.active {
     right: 0;
   }
 }
+
+// SECTION: Add new form styles
+
+.addnew {
+  &-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+// !SECTION

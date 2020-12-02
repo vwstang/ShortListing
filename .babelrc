@@ -3,5 +3,8 @@
     ["@babel/preset-env", { "targets": { "node": "current" } }],
     "@babel/preset-react"
   ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    ["babel-plugin-webpack-alias", { "config": "./webpack.config.js" }]
+  ]
 }

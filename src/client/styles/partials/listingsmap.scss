@@ -1,6 +1,6 @@
 .map-container {
   position: relative;
-  margin-left: 600px;
+  margin-left: $size-leftpane;
   width: 100%;
   transition: margin-left 0.5s;
 

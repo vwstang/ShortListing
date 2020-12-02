@@ -25,7 +25,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (shortlist && mapload) setIsReady(true);
+    if (shortlist && mapload) {
+      // REVIEW: for any other way to wait for all CSS to finish loading
+      setTimeout(() => {
+        setIsReady(true);
+      }, 1000);
+    }
   }, [shortlist, mapload]);
 
   if (!isReady) {

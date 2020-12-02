@@ -25,5 +25,10 @@ module.exports = {
       }
     ]
   },
-  resolve: { extensions: [".js", ".jsx", ".json", "*"] }
+  resolve: {
+    alias: {
+      CommonComps: path.resolve(__dirname, "src/client/components/common")
+    },
+    extensions: [".js", ".jsx", ".json", "*"]
+  }
 };
