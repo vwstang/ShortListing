@@ -45,7 +45,8 @@
 
     &-error {
       margin-left: 6px;
-      color: red;
+      color: $color--attention;
+      font-weight: bold;
     }
   }
 
@@ -61,14 +62,14 @@
 
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px $color--active;
+      box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--active;
     }
 
     &.errors {
-      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px rgb(255, 150, 150);
+      box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--attention-accent;
 
       &:focus {
-        box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px red;
+        box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--attention;
       }
     }
   }
@@ -92,20 +93,21 @@
   transition: background-color 0.2s, box-shadow 0.2s;
 
   &--confirm {
-    background: rgb(223, 173, 173);
+    background: $color--attention-accent;
 
     &:not([disabled]) {
       &:hover {
-        background: rgb(236, 160, 160);
+        background: $color--attention;
       }
 
       &:active {
-        background: rgb(236, 160, 160);
+        background: $color--attention;
       }
     }
 
     &:focus {
-      box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px rgb(255, 131, 131);
+      background: $color--attention;
+      box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--attention;
     }
   }
 }

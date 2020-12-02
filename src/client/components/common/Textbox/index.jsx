@@ -57,8 +57,8 @@ const Textbox = (props) => {
               </span>
             )}
           </div>
-          {!props.required && (
-            <span className="textbox-label-optional">Optional</span>
+          {props.required && (
+            <span className="textbox-label-required">Required</span>
           )}
         </div>
         <input {...inputProps} />

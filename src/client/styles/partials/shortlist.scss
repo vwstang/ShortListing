@@ -9,20 +9,58 @@
   overflow: hidden;
 }
 
-.shortlist-title {
+.shortlist-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 36px;
 }
 
 .shortlist-addnew-button {
-  margin-bottom: 20px;
-  width: 100%;
-  padding: 16px;
-  border: 1px solid $color--borders;
-  border-radius: 4px;
-  background: white;
-  color: #4f4f4f;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid $color--interaction;
+  border-radius: 50%;
   outline: none;
-  transition: background-color 0.2s;
+  background: white;
+  transition: background-color $animation--time-short, border $animation--time-long ease-in-out;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background: $color--interaction;
+    top: 6px;
+    right: 14px;
+    bottom: 6px;
+    width: 2px;
+    transition: transform $animation--time-long ease-in, background $animation--time-long ease-in-out;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: $color--interaction;
+    top: 14px;
+    right: 6px;
+    left: 6px;
+    height: 2px;
+    transition: transform $animation--time-long ease-out, background $animation--time-long ease-in-out;
+  }
+
+  &.active {
+    border: 1px solid $color--attention;
+
+    &:before {
+      background: $color--attention;
+      transform: rotateZ(225deg);
+    }
+
+    &:after {
+      background: $color--attention;
+      transform: rotateZ(-315deg);
+    }
+  }
 
   &:hover {
     background-color: $color--hover;
@@ -39,7 +77,7 @@
   position: absolute;
   width: 100%;
   left: calc(100% + 24px * 2);
-  transition: left $animation-slide;
+  transition: left $animation--slide;
 
   &.active {
     left: 0;
@@ -50,7 +88,7 @@
   position: absolute;
   width: 100%;
   right: calc(100% + 24px * 2);
-  transition: right $animation-slide;
+  transition: right $animation--slide;
 
   &.active {
     right: 0;

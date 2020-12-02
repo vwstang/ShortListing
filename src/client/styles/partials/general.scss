@@ -3,12 +3,18 @@ $unit-gutter: $unit-base * 6;
 
 $size-leftpane: 640px;
 
+$color--chantillylace: #ffffff;
 $color--borders: #cccccc;
 $color--hover: #f4f4f4;
 $color--active: #a3daff;
 $color--focus: #51afee;
+$color--interaction: #51afee;
+$color--attention: #ff4b4b;
+$color--attention-accent: #ff9696;
 
-$animation-slide: 0.5s ease;
+$animation--time-short: 0.2s;
+$animation--time-long: 0.5s;
+$animation--slide: $animation--time-long ease;
 
 body {
   font-family: "Karla", sans-serif;

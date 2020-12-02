@@ -16,44 +16,42 @@ const Shortlist = ({ shortlist, activeListing, setActiveListing, mapRef }) => {
         }
       }}
     >
-      <h1 className="shortlist-title">ShortListing</h1>
-      <button
-        className="shortlist-addnew-button"
-        onClick={async () => {
-          if (addingNew) {
-            let cancelConfirmed = true;
-            if (uncommittedChgs) {
-              cancelConfirmed = await swal({
-                title: "Cancel shortlisting",
-                text: "Unsaved changes will be lost. Are you sure?",
-                icon: "warning",
-                buttons: {
-                  confirm: {
-                    text: "Yes",
-                    value: true
+      <div className="shortlist-titlebar">
+        <h1 className="shortlist-title">ShortListing</h1>
+        <button
+          className={`shortlist-addnew-button${addingNew ? " active" : ""}`}
+          onClick={async () => {
+            if (addingNew) {
+              let cancelConfirmed = true;
+              if (uncommittedChgs) {
+                cancelConfirmed = await swal({
+                  title: "Cancel shortlisting",
+                  text: "Unsaved changes will be lost. Are you sure?",
+                  icon: "warning",
+                  buttons: {
+                    confirm: {
+                      text: "Yes",
+                      value: true
+                    },
+                    cancel: {
+                      text: "No",
+                      value: false,
+                      visible: true
+                    }
                   },
-                  cancel: {
-                    text: "No",
-                    value: false,
-                    visible: true
-                  }
-                },
-                closeOnClickOutside: false
-              });
+                  closeOnClickOutside: false
+                });
+              }
+              if (cancelConfirmed) {
+                setAddingNew(false);
+                setUncommittedChgs(false);
+              }
+            } else {
+              setAddingNew(true);
             }
-            if (cancelConfirmed) {
-              setAddingNew(false);
-              setUncommittedChgs(false);
-            }
-          } else {
-            setAddingNew(true);
-          }
-        }}
-      >
-        {addingNew
-          ? "Close"
-          : `Shortlist ${shortlist.length > 0 ? "another" : "a"} listing`}
-      </button>
+          }}
+        />
+      </div>
       <div className="shortlist-subcontainer">
         <div
           className={`shortlist-addnew-wrapper${addingNew ? " active" : ""}`}

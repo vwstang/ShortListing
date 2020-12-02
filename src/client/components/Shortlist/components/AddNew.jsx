@@ -113,6 +113,7 @@ const AddNew = (props) => {
             <Textbox
               inputid="addNewGarage"
               label="Garage"
+              placeholder={1}
               value={values.addNewGarage}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
@@ -123,6 +124,7 @@ const AddNew = (props) => {
             <Textbox
               inputid="addNewParking"
               label="Parking"
+              placeholder={2}
               value={values.addNewParking}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
