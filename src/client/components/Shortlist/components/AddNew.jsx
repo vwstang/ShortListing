@@ -6,7 +6,13 @@ import Textbox from "CommonComps/Textbox";
 const initVals = {
   addNewAddress: "",
   addNewMunicipality: "",
-  addNewDistrict: "",
+  addNewNeighbourhood: "",
+  addNewHouseType: "",
+  addNewHouseStyle: "",
+  addNewFrontage: "",
+  addNewLotDepth: "",
+  addNewBedrooms: "",
+  addNewBathrooms: "",
   addNewGarage: "",
   addNewParking: ""
 };
@@ -30,9 +36,15 @@ const addNewFormSchema = object().shape({
   addNewMunicipality: string("Invalid municipality").required(
     "Municipality-is required"
   ),
-  addNewDistrict: string(),
-  addNewGarage: number().typeError("Garage-isn't a number"),
-  addNewParking: number().typeError("Parking-isn't a number")
+  addNewNeighbourhood: string(),
+  addNewHouseType: string(),
+  addNewHouseStyle: string(),
+  addNewFrontage: number().typeError("Frontage-should be a number"),
+  addNewLotDepth: number().typeError("Lot Depth-should be a number"),
+  addNewBedrooms: number().typeError("Bedrooms-should be a number"),
+  addNewBathrooms: number().typeError("Bathrooms-should be a number"),
+  addNewGarage: number().typeError("Garage-should be a number"),
+  addNewParking: number().typeError("Parking-should be a number")
 });
 
 const addNewFormSubmit = (values, events) => {
@@ -100,16 +112,172 @@ const AddNew = (props) => {
               error={touched.addNewMunicipality && errors.addNewMunicipality}
             />
             <Textbox
-              inputid="addNewDistrict"
-              label="District"
+              inputid="addNewNeighbourhood"
+              label="Neighbourhood"
               placeholder="Downtown"
-              value={values.addNewDistrict}
+              value={values.addNewNeighbourhood}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
               halfwidth
               rightcol
-              error={touched.addNewDistrict && errors.addNewDistrict}
+              error={touched.addNewNeighbourhood && errors.addNewNeighbourhood}
             />
+            <Textbox
+              inputid="addNewHouseType"
+              label="House Type"
+              placeholder="Condo"
+              value={values.addNewHouseType}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewHouseType && errors.addNewHouseType}
+            />
+            <Textbox
+              inputid="addNewHouseStyle"
+              label="House Style"
+              placeholder="2-Storey"
+              value={values.addNewHouseStyle}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewHouseStyle && errors.addNewHouseStyle}
+            />
+            <Textbox
+              inputid="addNewFrontage"
+              label="Frontage"
+              placeholder={20}
+              value={values.addNewFrontage}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewFrontage && errors.addNewFrontage}
+            />
+            <Textbox
+              inputid="addNewLotDepth"
+              label="Lot Depth"
+              placeholder={110}
+              value={values.addNewLotDepth}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewLotDepth && errors.addNewLotDepth}
+            />
+            <Textbox
+              inputid="addNewBedrooms"
+              label="Bedrooms"
+              placeholder={3}
+              value={values.addNewBedrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewBedrooms && errors.addNewBedrooms}
+            />
+            <Textbox
+              inputid="addNewBathrooms"
+              label="Bathrooms"
+              placeholder={4}
+              value={values.addNewBathrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewBathrooms && errors.addNewBathrooms}
+            />
+            {/* TODO: UPDATE REST OF LISTING DETAILS */}
+            <Textbox
+              inputid="addNewBedrooms"
+              label="Bedrooms"
+              placeholder={3}
+              value={values.addNewBedrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewBedrooms && errors.addNewBedrooms}
+            />
+            <Textbox
+              inputid="addNewBathrooms"
+              label="Bathrooms"
+              placeholder={4}
+              value={values.addNewBathrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewBathrooms && errors.addNewBathrooms}
+            />
+            <Textbox
+              inputid="addNewBedrooms"
+              label="Bedrooms"
+              placeholder={3}
+              value={values.addNewBedrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewBedrooms && errors.addNewBedrooms}
+            />
+            <Textbox
+              inputid="addNewBathrooms"
+              label="Bathrooms"
+              placeholder={4}
+              value={values.addNewBathrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewBathrooms && errors.addNewBathrooms}
+            />
+            <Textbox
+              inputid="addNewBedrooms"
+              label="Bedrooms"
+              placeholder={3}
+              value={values.addNewBedrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewBedrooms && errors.addNewBedrooms}
+            />
+            <Textbox
+              inputid="addNewBathrooms"
+              label="Bathrooms"
+              placeholder={4}
+              value={values.addNewBathrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewBathrooms && errors.addNewBathrooms}
+            />
+            <Textbox
+              inputid="addNewBedrooms"
+              label="Bedrooms"
+              placeholder={3}
+              value={values.addNewBedrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              leftcol
+              error={touched.addNewBedrooms && errors.addNewBedrooms}
+            />
+            <Textbox
+              inputid="addNewBathrooms"
+              label="Bathrooms"
+              placeholder={4}
+              value={values.addNewBathrooms}
+              handlechange={hookHandleChange}
+              handleblur={handleBlur}
+              halfwidth
+              rightcol
+              error={touched.addNewBathrooms && errors.addNewBathrooms}
+            />
+            {/* TODO: END TODO */}
             <Textbox
               inputid="addNewGarage"
               label="Garage"

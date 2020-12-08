@@ -1,11 +1,16 @@
+$wrapper--gutter: 18px;
+$wrapper--outer: 6px;
+$wrapper--padding: 24px;
+
 .shortlist-container {
   display: flex;
   flex-direction: column;
   position: absolute;
   left: 0;
   width: $size-leftpane;
-  padding: 24px;
+  padding: $wrapper--padding $wrapper--outer $wrapper--padding $wrapper--padding;
   height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 
@@ -14,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 36px;
+  padding-right: $wrapper--gutter;
 }
 
 .shortlist-addnew-button {
@@ -24,7 +30,8 @@
   border-radius: 50%;
   outline: none;
   background: white;
-  transition: background-color $animation--time-short, border $animation--time-long ease-in-out;
+  transition: background-color $animation--time-short,
+    border $animation--time-long ease-in-out;
 
   &:before {
     content: "";
@@ -34,7 +41,8 @@
     right: 14px;
     bottom: 6px;
     width: 2px;
-    transition: transform $animation--time-long ease-in, background $animation--time-long ease-in-out;
+    transition: transform $animation--time-long ease-in,
+      background $animation--time-long ease-in-out;
   }
 
   &:after {
@@ -45,7 +53,8 @@
     right: 6px;
     left: 6px;
     height: 2px;
-    transition: transform $animation--time-long ease-out, background $animation--time-long ease-in-out;
+    transition: transform $animation--time-long ease-out,
+      background $animation--time-long ease-in-out;
   }
 
   &.active {
@@ -76,8 +85,11 @@
 .shortlist-addnew-wrapper {
   position: absolute;
   width: 100%;
-  left: calc(100% + 24px * 2);
+  height: 100%;
+  left: calc(100% + 24px * 2); // 24px = $wrapper--padding
   transition: left $animation--slide;
+  padding-right: $wrapper--gutter;
+  overflow-y: scroll;
 
   &.active {
     left: 0;
@@ -87,7 +99,8 @@
 .shortlist-listing-wrapper {
   position: absolute;
   width: 100%;
-  right: calc(100% + 24px * 2);
+  right: calc(100% + 24px * 2); // 24px = $wrapper--padding
+  padding-right: $wrapper--gutter;
   transition: right $animation--slide;
 
   &.active {

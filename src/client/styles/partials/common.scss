@@ -60,13 +60,18 @@
     padding: 8px;
     transition: box-shadow 0.2s;
 
+    &::placeholder {
+      color: $color--borders;
+    }
+
     &:focus {
       outline: 0;
       box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--active;
     }
 
     &.errors {
-      box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--attention-accent;
+      box-shadow: 0 0 0 1px $color--chantillylace,
+        0 0 0 3px $color--attention-accent;
 
       &:focus {
         box-shadow: 0 0 0 1px $color--chantillylace, 0 0 0 3px $color--attention;
