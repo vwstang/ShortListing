@@ -8,7 +8,7 @@ $wrapper--padding: 24px;
   position: absolute;
   left: 0;
   width: $size-leftpane;
-  padding: $wrapper--padding $wrapper--outer $wrapper--padding $wrapper--padding;
+  padding: $wrapper--padding $wrapper--outer;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -19,7 +19,7 @@ $wrapper--padding: 24px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 36px;
-  padding-right: $wrapper--gutter;
+  padding: 0 $wrapper--gutter;
 }
 
 .shortlist-addnew-button {
@@ -88,7 +88,7 @@ $wrapper--padding: 24px;
   height: 100%;
   left: calc(100% + 24px * 2); // 24px = $wrapper--padding
   transition: left $animation--slide;
-  padding-right: $wrapper--gutter;
+  padding: 0 $wrapper--gutter;
   overflow-y: scroll;
 
   &.active {
@@ -100,7 +100,7 @@ $wrapper--padding: 24px;
   position: absolute;
   width: 100%;
   right: calc(100% + 24px * 2); // 24px = $wrapper--padding
-  padding-right: $wrapper--gutter;
+  padding: 0 $wrapper--gutter;
   transition: right $animation--slide;
 
   &.active {

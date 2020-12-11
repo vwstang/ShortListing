@@ -24,7 +24,8 @@ const Textbox = (props) => {
     value: props.value,
     onChange: props.handlechange,
     ...(props.handleblur && { onBlur: props.handleblur }),
-    required: false
+    ...(props.required && { required: true }),
+    ...(props.disabled && { disabled: true })
   };
   return (
     <>
@@ -91,6 +92,7 @@ Textbox.propTypes = {
   handlechange: PropTypes.func.isRequired,
   handleblur: PropTypes.func,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   error: PropTypes.string
 };
 
@@ -100,7 +102,8 @@ Textbox.defaultProps = {
   leftcol: false,
   rightcol: false,
   label: "",
-  required: false
+  required: false,
+  disabled: false
 };
 
 export default Textbox;

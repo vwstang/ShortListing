@@ -1,21 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { addMethod as newValidator, object, string, number, mixed } from "yup";
 import Textbox from "CommonComps/Textbox";
-
-const initVals = {
-  addNewAddress: "",
-  addNewMunicipality: "",
-  addNewNeighbourhood: "",
-  addNewHouseType: "",
-  addNewHouseStyle: "",
-  addNewFrontage: "",
-  addNewLotDepth: "",
-  addNewBedrooms: "",
-  addNewBathrooms: "",
-  addNewGarage: "",
-  addNewParking: ""
-};
 
 newValidator(mixed, "pretendValidate", function (options) {
   const { path, createError } = this;
@@ -30,6 +16,20 @@ newValidator(mixed, "pretendValidate", function (options) {
     })
   );
 });
+
+const initVals = {
+  addNewAddress: "",
+  addNewMunicipality: "",
+  addNewNeighbourhood: "",
+  addNewHouseType: "",
+  addNewHouseStyle: "",
+  addNewFrontage: "",
+  addNewLotDepth: "",
+  addNewBedrooms: "",
+  addNewBathrooms: "",
+  addNewGarage: "",
+  addNewParking: ""
+};
 
 const addNewFormSchema = object().shape({
   addNewAddress: string("Invalid address").required("Address-is required"),
@@ -54,6 +54,8 @@ const addNewFormSubmit = (values, events) => {
 };
 
 const AddNew = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <Formik
       initialValues={initVals}
@@ -90,6 +92,42 @@ const AddNew = (props) => {
         return (
           <form id="addNewForm" className="addnew-form">
             <Textbox
+              inputid="addNewFromUrl"
+              label="Retrieve data from URL"
+              placeholder="290 Bremner Boulevard"
+              value={values.addNewFromUrl}
+              handlechange={handleChange}
+              handleblur={handleBlur}
+              error={touched.addNewFromUrl && errors.addNewFromUrl}
+            />
+            <button
+              type="button"
+              onClick={() => {
+                setIsLoading(true);
+                setTimeout(() => {
+                  resetForm({
+                    values: {
+                      addNewAddress: "HELLO SOMEWHERE STREET",
+                      addNewMunicipality: "",
+                      addNewNeighbourhood: "",
+                      addNewHouseType: "",
+                      addNewHouseStyle: "",
+                      addNewFrontage: "",
+                      addNewLotDepth: "",
+                      addNewBedrooms: "",
+                      addNewBathrooms: "",
+                      addNewGarage: "",
+                      addNewParking: ""
+                    }
+                  });
+                  props.setUncommittedChgs(true);
+                  setIsLoading(false);
+                }, 2000);
+              }}
+            >
+              Retrieve Data
+            </button>
+            <Textbox
               inputid="addNewAddress"
               label="Address"
               placeholder="290 Bremner Boulevard"
@@ -97,6 +135,7 @@ const AddNew = (props) => {
               handlechange={hookHandleChange}
               handleblur={handleBlur}
               required
+              disabled={isLoading}
               error={touched.addNewAddress && errors.addNewAddress}
             />
             <Textbox
@@ -107,6 +146,7 @@ const AddNew = (props) => {
               handlechange={hookHandleChange}
               handleblur={handleBlur}
               required
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewMunicipality && errors.addNewMunicipality}
@@ -118,6 +158,7 @@ const AddNew = (props) => {
               value={values.addNewNeighbourhood}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewNeighbourhood && errors.addNewNeighbourhood}
@@ -129,6 +170,7 @@ const AddNew = (props) => {
               value={values.addNewHouseType}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewHouseType && errors.addNewHouseType}
@@ -140,6 +182,7 @@ const AddNew = (props) => {
               value={values.addNewHouseStyle}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewHouseStyle && errors.addNewHouseStyle}
@@ -151,6 +194,7 @@ const AddNew = (props) => {
               value={values.addNewFrontage}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewFrontage && errors.addNewFrontage}
@@ -162,6 +206,7 @@ const AddNew = (props) => {
               value={values.addNewLotDepth}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewLotDepth && errors.addNewLotDepth}
@@ -173,6 +218,7 @@ const AddNew = (props) => {
               value={values.addNewBedrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewBedrooms && errors.addNewBedrooms}
@@ -184,6 +230,7 @@ const AddNew = (props) => {
               value={values.addNewBathrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewBathrooms && errors.addNewBathrooms}
@@ -196,6 +243,7 @@ const AddNew = (props) => {
               value={values.addNewBedrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewBedrooms && errors.addNewBedrooms}
@@ -207,6 +255,7 @@ const AddNew = (props) => {
               value={values.addNewBathrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewBathrooms && errors.addNewBathrooms}
@@ -218,6 +267,7 @@ const AddNew = (props) => {
               value={values.addNewBedrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewBedrooms && errors.addNewBedrooms}
@@ -229,6 +279,7 @@ const AddNew = (props) => {
               value={values.addNewBathrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewBathrooms && errors.addNewBathrooms}
@@ -240,6 +291,7 @@ const AddNew = (props) => {
               value={values.addNewBedrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewBedrooms && errors.addNewBedrooms}
@@ -251,6 +303,7 @@ const AddNew = (props) => {
               value={values.addNewBathrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewBathrooms && errors.addNewBathrooms}
@@ -262,6 +315,7 @@ const AddNew = (props) => {
               value={values.addNewBedrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewBedrooms && errors.addNewBedrooms}
@@ -273,6 +327,7 @@ const AddNew = (props) => {
               value={values.addNewBathrooms}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewBathrooms && errors.addNewBathrooms}
@@ -285,6 +340,7 @@ const AddNew = (props) => {
               value={values.addNewGarage}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               leftcol
               error={touched.addNewGarage && errors.addNewGarage}
@@ -296,6 +352,7 @@ const AddNew = (props) => {
               value={values.addNewParking}
               handlechange={hookHandleChange}
               handleblur={handleBlur}
+              disabled={isLoading}
               halfwidth
               rightcol
               error={touched.addNewParking && errors.addNewParking}
