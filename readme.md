@@ -1,4 +1,4 @@
-# ShortListing
+# ShortListing :house_with_garden:
 
 ### What the heck is ShortListing anyway?
 
@@ -12,7 +12,29 @@ Hey, naming stuff is hard okay? Besides, aren't you here to see the code?
 
 ## Getting started
 
-WIP...
+### Development
+
+1. Clone repository to local.
+
+   `git clone https://github.com/vwstang/ShortListing.git`
+
+1. Install dependencies.
+
+   `npm i`
+
+1. Open two terminals:
+
+   a. In one terminal, run `npm run webpack`
+
+   b. Once webpack is built and watching, run `npm start` in the other terminal
+
+1. Once `nodemon` has started the server, navigate to http://localhost:1726 in your browser of choice.
+
+### Dependencies
+
+The following dependency versions cannot be updated at this time:
+
+- `react-leaflet@2.8.0` - `3.0.0` and above introduces a lot of breaking changes that require code changes even at the react level. Also, have not been able to figure out server-side render with it, so it must stay at `2.8.0` for now.
 
 ## Project Status and Wiki
 
