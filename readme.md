@@ -20,4 +20,4 @@ Project status found in the `Projects` tab above, or [here](https://github.com/v
 
 Development of features currently being worked on and labelled as `enhancement` can be found in `Issues` tab above, or [here](https://github.com/vwstang/ShortListing/issues?q=is%3Aissue+label%3Aenhancement+sort%3Acreated-asc+) if you're still lazy.
 
-Excessive use of GitHub features for a personal project just for the sake of using them? I think not :upside-down-face:
+Excessive use of GitHub features for a personal project just for the sake of using them? I think not :upside_down_face:
